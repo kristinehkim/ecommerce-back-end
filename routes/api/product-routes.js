@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     });
     res.status(200).json(productData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
     });
     res.status(200).json(productData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
@@ -47,21 +47,8 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const productData = await Product.create(req.body);
-    
-    if (req.body.tagIds.length) {
-      const productTagIdArr = req.body.tagIds.map((tag_id) => {
-        return {
-          product_id: productData.id,
-          tag_id,
-        };
-      });
-
-      await ProductTag.bulkCreate(productTagIdArr);
-    }
-
     res.status(200).json(productData);
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -107,12 +94,31 @@ router.delete('/:id', async (req, res) => {
 
     res.status(200).json(productData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
 module.exports = router;
 
+// try {
+//   const productData = await Product.create(req.body);
+  
+//   if (req.body.tagIds.length) {
+//     const productTagIdArr = req.body.tagIds.map((tag_id) => {
+//       return {
+//         product_id: productData.id,
+//         tag_id,
+//       };
+//     });
+
+//     await ProductTag.bulkCreate(productTagIdArr);
+//   }
+
+//   res.status(200).json(productData);
+// } catch (err) {
+//   console.log(err);
+//   res.status(400).json(err);
+// }
 // router.post('/', (req, res) => {
 //   /* req.body should look like this...
 //     {
