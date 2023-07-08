@@ -69,15 +69,13 @@ router.post('/', async (req, res) => {
 // update product
 router.put('/:id', async (req, res) => {
   // update product data
-  console.log(req.body)
   try {
     const productData = await Product.update(
       {
-        name: req.body.name,
+        product_name: req.body.product_name,
         price: req.body.price,
         stock: req.body.stock,
         tagIds: req.body.tagIds,
-        id: req.body.id,
       }, 
       {
         where: {
@@ -85,35 +83,6 @@ router.put('/:id', async (req, res) => {
         },
       }
     );
-    
-    // console.log(productData)
-    //     if (req.body.tagIds && req.body.tagIds.length) {
-          
-    //       const productTags = await ProductTag.findAll({
-    //         where: { product_id: req.params.id }
-    //       })
-    //         // create filtered list of new tag_ids
-    //         console.log(productTags)
-    //         const productTagIds = productTags.map(({ tag_id }) => tag_id);
-    //         const newProductTags = req.body.tagIds
-    //         .filter((tag_id) => !productTagIds.includes(tag_id))
-    //         .map((tag_id) => {
-    //           return {
-    //             product_id: req.params.id,
-    //             tag_id,
-    //           };
-    //         });
-  
-    //           // figure out which ones to remove
-    //         const productTagsToRemove = productTags
-    //         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
-    //         .map(({ id }) => id);
-    //                 // run both actions
-    //         return Promise.all([
-    //           ProductTag.destroy({ where: { id: productTagsToRemove } }),
-    //           ProductTag.bulkCreate(newProductTags),
-    //         ]);
-    //       };
 
           res.status(200).json(productData);
         } catch (err) {
