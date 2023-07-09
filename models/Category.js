@@ -1,3 +1,4 @@
+// defining the Category table with columns using Sequelize based on a model in class
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');

@@ -1,3 +1,4 @@
+// defining the Product table with columns using Sequelize based on a model in class
 // import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
@@ -36,9 +37,9 @@ Product.init(
     },
     category_id: {
       type: DataTypes.INTEGER,
-      references: { // check all references
-        model: 'category',
-        key: 'id',
+      references: { 
+        model: 'category',// this is refering to Category model the modelName
+        key: 'id'
       }
     }
   },

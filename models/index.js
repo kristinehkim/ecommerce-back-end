@@ -22,7 +22,6 @@ Product.belongsToMany(Tag, {
   model: ProductTag
   },
   foreignKey: 'product_id'
-  // as: 'product_tags'
 });
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
@@ -30,7 +29,6 @@ Tag.belongsToMany(Product, {
     model: ProductTag
   },
   foreignKey: 'tag_id'
-  // as: 'tag_products'
 })
 module.exports = {
   Product,

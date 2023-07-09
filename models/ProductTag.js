@@ -1,3 +1,4 @@
+// defining the ProductTag table with columns using Sequelize based on a model in class
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
@@ -22,7 +23,7 @@ ProductTag.init(
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'tag',
+        model: 'tag',// referencing Tag model the modelName
         key: 'id'
       }
     }

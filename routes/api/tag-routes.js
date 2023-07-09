@@ -5,10 +5,10 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 router.get('/', async (req, res) => {
   // find all tags
-  // be sure to include its associated Product data
+  // Associated Product data included
   try {
     const tagData = await Tag.findAll({
-      include: [
+      include: [//get associated data from Product through ProductTag
         {
           model: Product,
           through: ProductTag
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res) => {
       }
     });
     if (!tagData) {
-      res.status(404).json({ message: 'No product found with this id!' });
+      res.status(404).json({ message: 'No tag found with this id!' });
       return;
     }
 

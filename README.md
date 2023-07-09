@@ -30,7 +30,7 @@ Given a functional Express.js API, the user is able to connect to a database usi
 
 ## Features
 - GET all or one product, tag, or category with all of its data.
-- POST, PUT, and DELETE products, tags, or categories.
+- POST, PUT, and DELETE products, tags, or categories succesfully performing CRUD operations using Sequelize models.
 - Awesome feature 3
 
 
