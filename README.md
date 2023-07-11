@@ -1,6 +1,6 @@
 # E-Commerce Back End
 > Back end for an e-commerce site with a configured working Express.js API to use Sequelize to interact with a MySQL database.
-> Walkthrough Video [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+> Walkthrough Video [_here_](https://drive.google.com/file/d/1Sun2hm-1F83qmjlgl6HP9AZLlHkgjA7G/view). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -46,14 +46,18 @@ In order to get started with the project, the user must add the database name an
 ## Usage
 
 `npm i`
+
 `mysql -u root -p`
+
 `SOURCE db/schema.sql;`
+
 `npm run seed`
+
 `npm run start` or `npm run watch` to use Nodemon
 
 
 ## Project Status
-Project is: _in progress_ .
+Project is: _in progress_.
 
 
 ## Acknowledgements
